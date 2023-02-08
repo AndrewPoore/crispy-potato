@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        "use strict";
+        /* DEFINING TABLE
+         * INPUT: A number, arithmetic operator, another number, and the user's answer to the problem.
+         * PROCESSING: Compute the correct answer, and evaluate if the user answer is correct.
+         * OUTPUT: Display a message stating whether or not the answer is correct.
+         */
+        function calculate() {
+            //variables
+            var num1 = parseFloat(document.querySelector("#number1").value);
+            var operator = document.querySelector("#operator").value;
+            var num2 = parseFloat(document.querySelector("#number2").value);
+            var answer = parseFloat(document.querySelector("#answer").value);
+            var output;
+
+            //processing
+            if (operator == "+") {
+                var correctAnswer = num1 + num2;
+            } else if (operator == "-") {
+                var correctAnswer = num1 - num2;
+            } else if (operator == "*") {
+                var correctAnswer = num1 * num2;
+            } else if (operator == "/") {
+                var correctAnswer = num1 / num2;
+            }
+
+
+            //output
+            if (answer == correctAnswer) {
+                output = "Correct, good job!"
+            } else {
+                output = "Incorrect, try again!"
+            }
+
+            document.querySelector("#outputMessage").innerHTML = output;
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="number1">
+    <input type="text" id="operator">
+    <input type="text" id="number2">
+    <span>=</span>
+    <input type="text" id="answer"></input>
+    <button type="button" onclick="calculate()"></button>
+    <div id="outputMessage"></div>
+</body>
+
+</html>
